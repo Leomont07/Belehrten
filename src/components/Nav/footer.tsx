@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const navItems = [
     {
       title: "Nosotros",
@@ -24,17 +24,24 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="flex flex-col pt-11 w-full mt-[1735px] max-md:mt-10 max-md:max-w-full">
-      <div className="flex flex-wrap gap-10 justify-center items-center p-5 w-full text-white max-md:max-w-full">
-        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa52947be1d398e5db2287fd62f77e441d7de4f34cad559f665d8229071340e1?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="Company logo" className="object-contain grow shrink self-stretch my-auto w-72 aspect-[1.48] min-w-[240px]" />
-        <nav className="flex flex-wrap gap-10 items-start self-stretch my-auto min-w-[240px] max-md:max-w-full">
+    <footer className="flex flex-col mt-20 items-center pt-10 w-full bg-gradient-to-b from-[#870053] to-[#F8F9FA] text-white">
+      <div className="flex flex-wrap gap-10 justify-center items-center p-5 w-full">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa52947be1d398e5db2287fd62f77e441d7de4f34cad559f665d8229071340e1?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa"
+          alt="Company logo"
+          className="w-28"
+        />
+        <nav className="flex flex-wrap gap-10">
           {navItems.map((section, index) => (
-            <div key={index} className="flex flex-col">
-              <h3 className="text-3xl font-bold">{section.title}</h3>
-              <ul className="flex flex-col mt-4 text-lg font-semibold capitalize">
+            <div key={index} className="flex flex-col items-start">
+              <h3 className="text-xl font-bold mb-3">{section.title}</h3>
+              <ul className="space-y-2 text-sm opacity-70">
                 {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="mt-2.5 opacity-50">
-                    <a href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}>{item}</a>
+                  <li key={itemIndex}>
+                    <a href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="hover:underline">
+                      {item}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -42,16 +49,16 @@ const Footer: React.FC = () => {
           ))}
         </nav>
       </div>
-      <div className="flex flex-wrap gap-10 justify-between items-center px-10 py-9 w-full min-h-[134px] max-md:px-5 max-md:max-w-full">
-        <nav className="flex gap-9 items-start self-stretch my-auto text-lg font-semibold capitalize min-w-[240px] text-neutral-900 max-md:max-w-full">
-          <a href="#terms">Términos y condiciones</a>
-          <a href="#privacy">Privacidad</a>
-          <a href="#cookies">Cookies</a>
+      <div className="flex flex-wrap justify-between items-center px-10 py-6 w-full bg-[#F8F9FA] text-black text-sm">
+        <nav className="flex gap-6">
+          <a href="#terms" className="hover:underline">Términos y condiciones</a>
+          <a href="#privacy" className="hover:underline">Privacidad</a>
+          <a href="#cookies" className="hover:underline">Cookies</a>
         </nav>
-        <div className="flex gap-4 items-start self-stretch my-auto min-w-[240px]">
+        <div className="flex gap-4">
           {socialIcons.map((icon, index) => (
             <a key={index} href="#" aria-label={`Social media link ${index + 1}`}>
-              <img loading="lazy" src={icon} alt="" className="object-contain shrink-0 aspect-square w-[60px]" />
+              <img loading="lazy" src={icon} alt="" className="w-6 h-6" />
             </a>
           ))}
         </div>

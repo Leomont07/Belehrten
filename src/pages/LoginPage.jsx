@@ -1,10 +1,12 @@
 import Header from '../components/Nav/header';
 import LoginForm from '../components/Login/loginForm';
 import IllustrationImage from '../components/Login/ilustration';
+import Footer from '../components/Nav/footer';
 
 const LoginPage = () => {
   return (
-    <main className="flex overflow-hidden flex-col pb-28 bg-white max-md:pb-24">
+    <main className="flex overflow-hidden flex-col pb-20 bg-white" style={{ padding: '0px 0px 0px' }}>
+
       <Header />
       <section className="self-center mt-20 ml-7 w-full max-w-[978px] max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col">
@@ -16,6 +18,7 @@ const LoginPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </main>
   );
 };

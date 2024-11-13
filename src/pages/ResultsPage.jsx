@@ -5,7 +5,8 @@ import RadarChart from '../components/Test/radarChart';
 
 function ResultsPage() {
   return (
-    <main className="flex overflow-hidden flex-col items-center pb-80 bg-white max-md:pb-24">
+    <main className="flex overflow-hidden flex-col pb-20 bg-white" style={{ padding: '0px 0px 0px' }}>
+
       <Header />
       <h1 className="mt-12 text-6xl font-bold text-neutral-900 max-md:mt-10 max-md:text-4xl">
         ¡Congratulations!
