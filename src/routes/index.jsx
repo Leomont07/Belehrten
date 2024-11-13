@@ -1,12 +1,13 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
-import LandingPage from "../pages/LandingPage";
+import { useRoutes, BrowserRouter } from "react-router-dom";
+import Home from "../pages/Home";
+
 
 
 const AppRoutes = () => {
     let routes = useRoutes([
         { path:'/login', element: <Login /> },
-        { path:'/home', element: <LandingPage /> },
+        { path:'/home', element: <Home /> },
         { path:'/preTest', element: <PreTest /> },
         { path:'/test', element: <Test /> },
         { path:'/postTest', element: <PostTest /> },

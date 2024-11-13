@@ -1,9 +1,8 @@
-import React from 'react';
 import Header from './Header';
 import LoginForm from './LoginForm';
 import IllustrationImage from './IllustrationImage';
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
   return (
     <main className="flex overflow-hidden flex-col pb-28 bg-white max-md:pb-24">
       <Header />
