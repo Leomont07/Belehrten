@@ -1,8 +1,7 @@
-import React from 'react';
-import Header from './Header';
-import ResultsCard from './ResultsCard';
-import ScoreMeaning from './ScoreMeaning';
-import RadarChart from './RadarChart';
+import Header from '../components/Nav/header';
+import ResultsCard from '../components/Test/resultsCard';
+import ScoreMeaning from '../components/Test/scoreMeaning';
+import RadarChart from '../components/Test/radarChart';
 
 function ResultsPage() {
   return (

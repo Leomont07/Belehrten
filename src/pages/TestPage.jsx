@@ -1,8 +1,7 @@
-import React from 'react';
-import Header from './Header';
-import Question from './Question';
-import ProgressIndicator from './ProgressIndicator';
-import NavigationButtons from './NavigationButtons';
+import Header from '../components/Nav/header';
+import Question from '../components/Test/Question';
+import ProgressIndicator from '../components/Test/progressIndicator';
+import NavigationButtons from '../components/Test/navigationButtons';
 
 function TestPage() {
   const questions = [
