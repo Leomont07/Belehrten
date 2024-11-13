@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -16,16 +14,6 @@ import './index.css';
 function App() {  
   //Estado - UseState
   //Ciclo de vida
-
-//Conexión
-const fetchAPI = async () => {
-  const response  = await axios.get("http://localhost:8080/api");
-  console.log(response)
-};
-//Ejecución de la conexión
-useEffect(() => {
-fetchAPI();
-}, [])
 
   //jsx - (el html del componente) (JavaScriptXtended)
   return (

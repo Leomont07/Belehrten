@@ -1,5 +1,5 @@
 import Sidebar from './Sidebar';
-import Header from './Header';
+//import Header from './Header';
 
 function AdminLayout({ children }) {
   return (
@@ -7,7 +7,6 @@ function AdminLayout({ children }) {
       <div className="flex gap-5 max-md:flex-col">
         <Sidebar />
         <div className="flex flex-col ml-5 w-[81%] max-md:ml-0 max-md:w-full">
-          <Header />
           <main>{children}</main>
         </div>
       </div>
