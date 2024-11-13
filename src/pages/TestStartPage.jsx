@@ -1,10 +1,11 @@
 import Header from '../components/Nav/header';
+import Footer from '../components/Nav/footer';
 //import LogoutButton from '../components/General/LogoutButton';
 //import ProfileButton from '../components/General/ProfileButton';
 
 function TestStartPage() {
   return (
-    <main className="flex overflow-hidden flex-col pb-56 text-white bg-white max-md:pb-24">
+    <main className="flex overflow-hidden flex-col pb-20 bg-white" style={{ padding: '0px 0px 0px' }}>
       <Header />
       <img
         loading="lazy"
@@ -12,6 +13,7 @@ function TestStartPage() {
         alt="Dashboard illustration"
         className="object-contain self-center mt-32 max-w-full aspect-[1.48] w-[561px] max-md:mt-10"
       />
+      <Footer />
     </main>
   );
 }
