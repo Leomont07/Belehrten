@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home'; // Ejemplo
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from "./pages/RegistrationPage";
-
+import './index.css';
 
 function App() {  
   //Estado - UseState
