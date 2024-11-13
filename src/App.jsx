@@ -10,6 +10,7 @@ import ResultsPage from "./pages/ResultsPage";
 //import StudyPage from "./pages/StudyPlan";
 import TestPage from "./pages/TestPage";
 import TestStartPage from "./pages/TestStartPage";
+import UserManagement from "./pages/UserManagement"
 import './index.css';
 
 function App() {  
@@ -38,6 +39,7 @@ fetchAPI();
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/teststart" element={<TestStartPage />} />
+            <Route path="/userManagement" element={<UserManagement />} />
             {/* <Route path="/studyplan" element={<StudyPlan />} /> */}
         </Routes>
     </Router>
