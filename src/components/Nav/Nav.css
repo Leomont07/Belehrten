@@ -1,0 +1,38 @@
+.header-content {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.ant-menu-horizontal {
+    border-bottom: none;
+    flex-grow: 1;
+    justify-content: flex-end; 
+}
+
+.ant-menu-item {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.ant-menu-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.ant-menu-item a:hover {
+    color: #1890ff;
+}
+
+.ant-menu-item-selected a {
+    color: #1890ff;
+    font-weight: bold;
+}
