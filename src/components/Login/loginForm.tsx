@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
   return (
     <div className="flex flex-col w-full text-lg font-semibold max-md:mt-10">
       <h1 className="text-6xl font-bold text-center text-black max-md:text-4xl">

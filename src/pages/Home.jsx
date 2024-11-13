@@ -1,9 +1,9 @@
-import React from 'react';
-import Header from './Nav/Header';
-import HeroSection from './Nav/HeroSection';
-import WhyChooseUs from './Nav/WhyChooseUs';
-import TestSection from './Nav/TestSection';
-import Footer from './Nav/Footer';
+import Header from '../components/Nav/header';
+import Footer from '../components/Nav/footer';
+import HeroSection from '../components/Nav/heroSection';
+import WhyChooseUs from '../components/Nav/whyChooseUs';
+import TestSection from '../components/Nav/testSection';
+
 
 const Home = () => {
   return (

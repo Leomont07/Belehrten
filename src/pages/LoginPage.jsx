@@ -1,6 +1,6 @@
-import Header from './Header';
-import LoginForm from './LoginForm';
-import IllustrationImage from './IllustrationImage';
+import Header from '../components/Nav/header';
+import LoginForm from '../components/Login/loginForm';
+import IllustrationImage from '../components/Login/ilustration';
 
 const LoginPage = () => {
   return (
