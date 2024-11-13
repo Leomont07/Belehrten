@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="flex flex-col pt-11 w-full mt-[1735px] max-md:mt-10 max-md:max-w-full">
-      <div className="flex flex-wrap gap-10 justify-center items-center p-5 w-full text-white max-md:max-w-full">
+    <footer className="flex flex-col pt-11 w-full mt-[1735px] max-md:mt-10 max-md:max-w-full bg-gradient-to-b from-[#800020] to-[#ffc0cb] text-white">
+      <div className="flex flex-wrap gap-10 justify-center items-center p-5 w-full max-md:max-w-full">
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fa52947be1d398e5db2287fd62f77e441d7de4f34cad559f665d8229071340e1?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="Company logo" className="object-contain grow shrink self-stretch my-auto w-72 aspect-[1.48] min-w-[240px]" />
         <nav className="flex flex-wrap gap-10 items-start self-stretch my-auto min-w-[240px] max-md:max-w-full">
           {navItems.map((section, index) => (
