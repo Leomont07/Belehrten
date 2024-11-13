@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header className="flex flex-col w-full text-white max-md:max-w-full">
+    <header className="flex flex-col w-full text-white max-md:max-w-full" style={{ backgroundImage: 'linear-gradient(to right, #4b0082, #800020)' }}>
       <div className="flex flex-wrap gap-10 justify-between items-center px-10 w-full min-h-[100px] max-md:px-5 max-md:max-w-full">
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/852aa22bf5bc866857c31059f6b2cb998982a466c4b77635b76977bcd697e100?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="Company logo" className="object-contain shrink-0 self-stretch my-auto aspect-[1.48] w-[138px]" />
         <nav className="flex flex-wrap gap-10 justify-between items-center self-stretch my-auto text-sm font-extrabold min-w-[240px] w-[519px] max-md:max-w-full">
