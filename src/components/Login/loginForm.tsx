@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   return (
@@ -32,13 +33,17 @@ const LoginForm = () => {
         <button type="submit" className="gap-5 self-stretch px-2.5 py-2 mt-8 w-full text-center text-white capitalize bg-indigo-600 rounded-3xl shadow-sm min-h-[40px]">
           Iniciar Sesión
         </button>
+        <Link to={'/'}>
         <button type="button" className="gap-5 self-stretch px-2.5 py-2 mt-8 w-full text-center text-white capitalize whitespace-nowrap bg-red-500 rounded-3xl shadow-sm min-h-[40px]">
           Cancelar
         </button>
+        </Link>
       </form>
       <p className="mt-8 text-center text-indigo-600 underline decoration-auto decoration-solid underline-offset-auto">
         <span className="text-2xl leading-10">¿No tienes una cuenta? </span>
-        <a href="#" className="text-2xl font-bold leading-10 text-indigo-600 underline">Registrarme</a>
+        <Link to="/registration" className="text-2xl font-bold leading-10 text-indigo-600 underline">
+          Registrarme
+        </Link>
       </p>
       <button className="flex gap-5 justify-center items-center px-2.5 py-2 mt-8 w-full text-center capitalize bg-gray-50 rounded-3xl border border-black border-solid shadow-sm min-h-[40px] text-neutral-900">
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/e663a39143a0eaf4c68b5ca49566fa6b4d4bca4610dc9ff433e9ba0a74a89f3d?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="" className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square" />
