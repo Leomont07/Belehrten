@@ -1,8 +1,7 @@
-import React from 'react';
-import Header from './Header';
-import Question from './Question';
-import ProgressIndicator from './ProgressIndicator';
-import NavigationButtons from './NavigationButtons';
+import Header from '../components/Nav/header';
+import Question from '../components/Test/Question';
+import ProgressIndicator from '../components/Test/progressIndicator';
+import NavigationButtons from '../components/Test/navigationButtons';
 
 function TestPage() {
   const questions = [
@@ -19,7 +18,8 @@ function TestPage() {
   ];
 
   return (
-    <main className="flex overflow-hidden flex-col pb-14 bg-white">
+    <main className="flex overflow-hidden flex-col pb-20 bg-white" style={{ padding: '0px 0px 0px' }}>
+
       <Header />
       <section className="flex flex-col items-start px-16 mt-16 w-full max-md:px-5 max-md:mt-10 max-md:max-w-full">
         <h1 className="gap-2.5 self-stretch p-2.5 text-4xl font-bold text-black">

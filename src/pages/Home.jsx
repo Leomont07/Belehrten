@@ -4,10 +4,9 @@ import HeroSection from '../components/Nav/heroSection';
 import WhyChooseUs from '../components/Nav/whyChooseUs';
 import TestSection from '../components/Nav/testSection';
 
-
 const Home = () => {
   return (
-    <div className="flex overflow-hidden flex-col">
+    <div className="flex flex-col overflow-hidden bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 min-h-screen">
       <Header />
       <HeroSection />
       <WhyChooseUs />
