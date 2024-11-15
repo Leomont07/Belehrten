@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Admin/SideBar';
 import UserTable from '../components/Admin/UserTable';
+import { ENDPOINTS } from '../config/endpoint';
 
 const UserManagement = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
         // Fetch users from the backend
-        fetch('http://localhost:3002/users')
+        fetch(ENDPOINTS.USERS + '/getUsers')
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
