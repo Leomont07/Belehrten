@@ -76,7 +76,7 @@ const EditUserModal = ({ user, isOpen, onClose, onSave }) => {
               type="password"
               id="psw"
               name="psw"
-              value={'********'}
+              value={formData.psw || ''}
               onChange={handleChange}
               className="w-full px-4 py-2 border rounded"
             />

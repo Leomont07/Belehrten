@@ -33,6 +33,7 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('session', JSON.stringify(data.user));
         if (data.user.tipo === 1) {
           alert('Inicio de sesión exitoso');
           navigate('/');  

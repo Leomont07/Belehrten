@@ -1,6 +1,55 @@
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ENDPOINTS } from '../../config/endpoint';
 
 const Sidebar = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const session = localStorage.getItem('session');
+    setIsLoggedIn(!!session);
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      const session = localStorage.getItem('session');
+      if (!session) throw new Error('No hay una sesión activa.');
+
+      const parsedSession = JSON.parse(session); // Parsea el JSON.
+      const { id_usuario } = parsedSession; // Extrae `id_usuario`.
+
+      const userData = {
+        id_usuario
+      }
+
+      const response = await fetch(ENDPOINTS.USERS + '/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      localStorage.removeItem('session');
+      setIsLoggedIn(false);
+
+      if (response.ok) {
+        alert('Sesión cerrada correctamente');
+        navigate('/');
+      } else {
+        alert('No se pudo cerrar sesion. ' + data.error)
+      }
+
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+      alert('Hubo un problema al cerrar la sesión. Por favor, inténtalo de nuevo.');
+    }
+  };
+
   return (
     <aside className="bg-gradient-to-b from-purple-700 to-indigo-600 w-64 p-6 text-white min-h-screen">
       <div className="flex flex-col items-center mb-8">
@@ -28,9 +77,9 @@ const Sidebar = () => {
         <Link to="/settings" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>⚙️</span> Configuración
         </Link>
-        <Link to="/logout" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        <button onClick={handleLogout} className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>🚪</span> Logout
-        </Link>
+        </button>
       </nav>
     </aside>
   );

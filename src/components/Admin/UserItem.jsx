@@ -31,6 +31,7 @@ const UserItem = ({ user, onUpdateUser, onDeleteUser }) => {
       .then((data) => {
         console.log('Usuario actualizado:', data);
         onUpdateUser(data.user); 
+        alert('Usuario actualizado correctamente')
       })
       .catch((error) => {
         console.error('Error al actualizar usuario:', error);

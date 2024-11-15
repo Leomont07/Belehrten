@@ -12,6 +12,11 @@ const NewPassword = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!psw) {
+      alert('Ingresa una contraseña.');
+      return;
+    }
+
     if (!token) {
       alert('Token no válido.');
       return;
@@ -68,7 +73,7 @@ const NewPassword = () => {
             className="bg-transparent w-full outline-none"
             aria-label="Ingresa tu nueva contraseña"
           />
-          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/56ed97444bca9c125dc08c718597c6f286a3120476cce53685784c91b71bfc15?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="" className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square" />
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2eb5fd240fff749c8811197127fc3dbca66619f1cfdd3ac20db01485728a0510?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="" className="object-contain shrink-0 self-stretch my-auto w-4 aspect-[0.76] fill-gray-400" />
         </div>
         <button type="submit" className="gap-5 self-stretch px-2.5 py-2 mt-8 w-full text-center text-white capitalize bg-indigo-600 rounded-3xl shadow-sm min-h-[40px]">
           Confrimar
