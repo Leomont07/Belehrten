@@ -88,6 +88,11 @@ const LoginForm = () => {
         </Link>
       </form>
       <p className="mt-8 text-center text-indigo-600 underline decoration-auto decoration-solid underline-offset-auto">
+        <Link to="/restorePassword" className="text-2xl font-bold leading-10 text-indigo-600 underline">
+          Olvide mi Contraseña
+        </Link>
+      </p>
+      <p className="mt-8 text-center text-indigo-600 underline decoration-auto decoration-solid underline-offset-auto">
         <span className="text-2xl leading-10">¿No tienes una cuenta? </span>
         <Link to="/registration" className="text-2xl font-bold leading-10 text-indigo-600 underline">
           Registrarme

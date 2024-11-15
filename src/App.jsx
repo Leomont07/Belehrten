@@ -9,6 +9,7 @@ import ResultsPage from "./pages/ResultsPage";
 import TestPage from "./pages/TestPage";
 import TestStartPage from "./pages/TestStartPage";
 import UserManagement from "./pages/UserManagement"
+import RestorePassword from './pages/RestorePassword';
 import './index.css';
 
 function App() {  
@@ -28,6 +29,7 @@ function App() {
             <Route path="/test" element={<TestPage />} />
             <Route path="/teststart" element={<TestStartPage />} />
             <Route path="/userManagement" element={<UserManagement />} />
+            <Route path="/restorePassword" element={<RestorePassword />} />
             {/* <Route path="/studyplan" element={<StudyPlan />} /> */}
         </Routes>
     </Router>
