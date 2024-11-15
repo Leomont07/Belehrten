@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Sidebar = () => {
   return (
     <aside className="bg-gradient-to-b from-purple-700 to-indigo-600 w-64 p-6 text-white min-h-screen">
@@ -11,24 +13,24 @@ const Sidebar = () => {
         <p className="text-sm">Admin</p>
       </div>
       <nav className="flex flex-col gap-4">
-        <button className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        <Link to="/" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>🏠</span> Home
-        </button>
-        <button className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        </Link>
+        <Link to="/teststart" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>📝</span> English test
-        </button>
-        <button className="flex items-center gap-2 p-2 bg-white text-black rounded">
+        </Link>
+        <Link to="/users" className="flex items-center gap-2 p-2 bg-white text-black rounded">
           <span>👤</span> Usuarios
-        </button>
-        <button className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        </Link>
+        <Link to="/reports" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>📊</span> Reportes
-        </button>
-        <button className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        </Link>
+        <Link to="/settings" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>⚙️</span> Configuración
-        </button>
-        <button className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
+        </Link>
+        <Link to="/logout" className="flex items-center gap-2 p-2 hover:bg-purple-800 rounded">
           <span>🚪</span> Logout
-        </button>
+        </Link>
       </nav>
     </aside>
   );

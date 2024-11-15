@@ -1,34 +1,30 @@
 import UserItem from './UserItem.jsx';
 
-const UserTable = ({ users }) => {
+const UserTable = ({ users, onUpdateUser}) => {
+  // Filtrar usuarios con status diferente de 0
+  const filteredUsers = users.filter((user) => user.status !== 0);
+
   return (
-    <div className="p-8 w-full">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">Usuarios</h2>
-      <hr className="border-gray-300 mb-6" />
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white">
-          <thead>
-            <tr>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Id</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Nombre</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Apellido Paterno</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Apellido Materno</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Edad</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Correo</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Fecha registro</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Contraseña</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Verificación</th>
-              <th className="py-2 px-4 text-left font-medium text-gray-600">Token</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <UserItem key={user.id_usuario} user={user} />
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <table className="min-w-full">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Edad</th>
+          <th>Correo</th>
+          <th>Fecha Registro</th>
+          <th>Contraseña</th>
+          <th>Verificado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filteredUsers.map((user) => (
+          <UserItem key={user.id_usuario} user={user} onUpdateUser={onUpdateUser} />
+        ))}
+      </tbody>
+    </table>
   );
 };
 
