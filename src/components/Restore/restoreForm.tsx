@@ -3,14 +3,40 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ENDPOINTS } from '../../config/endpoint';
 
 const RestoreForm = () => {
-  
+
   const [correo, setCorreo] = useState('');
 
+  const handleRestore = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+
+      const userData = { correo };
+
+      const response = await fetch(ENDPOINTS.USERS + '/restore', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      if(response.ok) {
+        alert('Se te envió un correo para reestablecer tu contraseña.');
+      } else {
+        alert('Hubo un prblema. Intentalo más tarde.' + data.error);
+      }  
+    } catch (error: any) {
+      alert('Hubo un problema. Inténtalo más tarde. ' + error);
+    }
+  };
 
   return (
     <div className="flex flex-col w-full text-lg font-semibold max-md:mt-10">
-      <h1 className="text-6xl font-bold text-center text-black max-md:text-4xl">Ingresar</h1>
-      <form>
+      <h1 className="text-6xl font-bold text-center text-black max-md:text-4xl">Olvide mi Contraseña</h1>
+      <form onSubmit={handleRestore}>
         <div className="flex gap-10 justify-between items-center px-5 py-2 mt-8 w-full text-base text-gray-400 bg-gray-50 rounded-3xl shadow-sm min-h-[40px]">
           <label htmlFor="correo" className="sr-only">Ingresa tu correo</label>
           <input
