@@ -15,7 +15,7 @@ const UserManagement = () => {
                 setUsers(data);
                 console.log("Usuarios obtenidos:", data);
             })
-            .catch(error => console.error('Error al obtener los usuarios:', error)); // Cambiar `console.err` a `console.error`
+            .catch(error => console.error('Error al obtener los usuarios:', error));
     }, []);
     return (
         <div className="flex">

@@ -10,7 +10,6 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones básicas
     if (!correo || !psw) {
       alert('Por favor, completa todos los campos.');
       return;
@@ -34,8 +33,13 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (response.ok) {
-        alert('Inicio de sesión exitoso');
-        navigate('/');
+        if (data.user.tipo === 1) {
+          alert('Inicio de sesión exitoso');
+          navigate('/');  
+        } else if (data.user.tipo === 2) {
+          alert('Inicio de sesión a Administración exitoso');
+          navigate('/userManagement');
+        }
       } else {
         alert(data.error || 'Error al iniciar sesión. Verifica tus credenciales.');
       }
