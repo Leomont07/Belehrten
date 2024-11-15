@@ -11,6 +11,11 @@ const RestoreForm = () => {
 
     try {
 
+      if (!correo) {
+        alert('Ingresa un correo');
+        return;
+      }
+
       const userData = { correo };
 
       const response = await fetch(ENDPOINTS.USERS + '/restore', {
