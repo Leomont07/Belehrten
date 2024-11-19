@@ -59,6 +59,7 @@ const UserItem = ({ user, onUpdateUser, onDeleteUser }) => {
       .then((data) => {
         console.log('Usuario actualizado (status cambiado a 0):', data);
         onUpdateUser(data.user); 
+        alert('Usuario eliminado correctamente')
       })
       .catch((error) => {
         console.error('Error al eliminar al usuario:', error);
