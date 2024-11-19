@@ -23,7 +23,7 @@ function TestStartPage() {
         alert('Inicia sesión o registrate para iniciar el test');
         navigate('/login');
       } else {
-        navigate('test');
+        navigate('/test');
       }
 
     } catch (error) {
