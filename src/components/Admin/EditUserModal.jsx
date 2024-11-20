@@ -16,8 +16,9 @@ const EditUserModal = ({ user, isOpen, onClose, onSave }) => {
   };
 
   const validatePassword = (password) => {
+    if (formData.psw === password) return true;
     if (!password) return true; // Contraseña opcional, no validar si está vacía
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&./])[A-Za-z\d@$!%*?&./]{8,}$/;
+    const regex = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&./])[A-Za-z\d@$!%?&./]{8,}$/;
     const consecutiveNumbers = /(\d)\1/;
     if (!regex.test(password) || consecutiveNumbers.test(password)) {
       setError(
