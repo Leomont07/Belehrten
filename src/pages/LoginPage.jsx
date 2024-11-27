@@ -3,6 +3,7 @@ import LoginForm from '../components/Login/loginForm';
 import IllustrationImage from '../components/Login/ilustration';
 import Footer from '../components/Nav/footer';
 
+
 const LoginPage = () => {
   return (
     <main className="flex overflow-hidden flex-col pb-20 bg-white" style={{ padding: '0px 0px 0px' }}>
