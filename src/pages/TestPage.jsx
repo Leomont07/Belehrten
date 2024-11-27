@@ -3,7 +3,6 @@ import Header from '../components/Nav/header';
 import Footer from '../components/Nav/footer';
 import Question from '../components/Test/Question';
 import ProgressIndicator from '../components/Test/progressIndicator';
-import NavigationButtons from '../components/Test/navigationButtons';
 import { ENDPOINTS } from '../config/endpoint';
 
 function TestPage() {
@@ -59,7 +58,18 @@ function TestPage() {
       if (!response.ok) throw new Error('Error al obtener pregunta adaptativa');
 
       const data = await response.json();
-      setCurrentQuestion(data.question);
+      console.log(data);
+      // Procesar las opciones de respuesta directamente desde la API
+      const options = data.question.options;
+
+      // Asumimos que 'question' es el texto de la pregunta y 'correctAnswer' es la respuesta correcta
+     setCurrentQuestion({
+    id: data.question.id,
+    question: data.question.question,
+    options: options,
+    correctAnswer: data.question.correctAnswer,
+    nivel_dificultad: data.nivel_dificultad, // Aquí está el nivel de dificultad
+});
     } catch (error) {
       console.error('Error al obtener pregunta:', error);
     }
@@ -74,7 +84,7 @@ function TestPage() {
         },
         body: JSON.stringify({
           id_test: testId,
-          id_pregunta: currentQuestion.id,
+          nivel_dificultad: currentQuestion.nivel_dificultad ,
           respuesta_usuario: selectedOption,
           correcta: currentQuestion.correctAnswer,
         }),
@@ -136,7 +146,6 @@ function TestPage() {
 
         <div className="flex flex-wrap gap-10 items-center mt-24 ml-5 w-full max-md:mt-10 max-md:max-w-full">
           <ProgressIndicator totalQuestions={totalQuestions} currentQuestion={currentQuestionIndex + 1} />
-          <NavigationButtons />
         </div>
       </section>
       <Footer />
