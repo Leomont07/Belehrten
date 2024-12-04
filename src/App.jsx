@@ -5,7 +5,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import NotificationsPage from "./pages/NotificationsPage";
 import ProfilePage from "./pages/ProfilePage";
 import ResultsPage from "./pages/ResultsPage";
-//import StudyPage from "./pages/StudyPlan";
+import StudyPlan from "./pages/StudyPlan";
 import TestPage from "./pages/TestPage";
 import TestStartPage from "./pages/TestStartPage";
 import UserManagement from "./pages/UserManagement"
@@ -34,7 +34,7 @@ function App() {
             <Route path="/restorePassword" element={<RestorePassword />} />
             <Route path="/updatePassword" element={<UpdatePassword />} />
             <Route path="/verify" element={<Verify />} />
-            {/* <Route path="/studyplan" element={<StudyPlan />} /> */}
+            <Route path="/studyplan" element={<StudyPlan />} />
         </Routes>
     </Router>
 );

@@ -55,8 +55,8 @@ const Header: React.FC = () => {
         <Link to={'/'}><img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/852aa22bf5bc866857c31059f6b2cb998982a466c4b77635b76977bcd697e100?placeholderIfAbsent=true&apiKey=831aea2c46a444e18c84840a809d0faa" alt="Company logo" className="object-contain shrink-0 self-stretch my-auto aspect-[1.48] w-[138px]" /></Link>
         <nav className="flex flex-wrap gap-10 justify-between items-center self-stretch my-auto text-sm font-extrabold min-w-[240px] w-[519px] max-md:max-w-full">
           <Link to="/teststart" className="self-stretch my-auto">English test</Link>
-          <Link to="#study-plan" className="self-stretch my-auto">Plan de estudio</Link>
-          <Link to="#tools" className="self-stretch my-auto">Notificaciones</Link>
+          <Link to="/studyplan" className="self-stretch my-auto">Plan de estudio</Link>
+          <Link to="/notifications" className="self-stretch my-auto">Notificaciones</Link>
         </nav>
         <div className="flex gap-5 justify-center items-center self-stretch my-auto text-lg font-semibold text-center capitalize min-w-[240px] w-[418px]">
         {isLoggedIn ? (
