@@ -127,11 +127,13 @@ function TestPage() {
       const scorePercentage = (score / totalQuestions) * 100; // (respuestas correctas / total preguntas) * 100
 
       // Calcular el nivel final en base al porcentaje de puntaje
+      console.log('Calculando nivel');
       let nivel_final = 'A1'; // Nivel por defecto
       if (scorePercentage >= 60) nivel_final = 'A2';
       if (scorePercentage >= 80) nivel_final = 'B1';
       if (scorePercentage >= 90) nivel_final = 'B2';
 
+      console.log('Enviando solicitud')
       const response = await fetch(ENDPOINTS.TESTS + '/finish/' + testId, {
         method: 'POST',
         headers: {
