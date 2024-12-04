@@ -35,6 +35,11 @@ function RegistrationForm() {
       return;
     }
 
+    if (edad <= 0) {
+      alert('Ingrese una edad válida')
+      return;
+    }
+
     const userData = {
       nombre,
       apellido_pat: apellidoPat,

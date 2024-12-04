@@ -9,6 +9,9 @@ import ResultsPage from "./pages/ResultsPage";
 import TestPage from "./pages/TestPage";
 import TestStartPage from "./pages/TestStartPage";
 import UserManagement from "./pages/UserManagement"
+import RestorePassword from './pages/RestorePassword'
+import UpdatePassword from './pages/UpdatePassword';
+import Verify from './pages/Verify';
 import './index.css';
 
 function App() {  
@@ -21,13 +24,16 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/results" element={<ResultsPage />} />
+            <Route path="/resultspage" element={<ResultsPage />} />
             <Route path="/registration" element={<RegistrationPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/test" element={<TestPage />} />
             <Route path="/teststart" element={<TestStartPage />} />
             <Route path="/userManagement" element={<UserManagement />} />
+            <Route path="/restorePassword" element={<RestorePassword />} />
+            <Route path="/updatePassword" element={<UpdatePassword />} />
+            <Route path="/verify" element={<Verify />} />
             {/* <Route path="/studyplan" element={<StudyPlan />} /> */}
         </Routes>
     </Router>
