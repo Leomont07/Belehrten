@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importar useNavigate
 import Header from '../components/Nav/header';
 import Footer from '../components/Nav/footer';
 import Question from '../components/Test/Question';
@@ -9,7 +10,13 @@ function TestPage() {
   const [testId, setTestId] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(16);
+  const [totalQuestions, setTotalQuestions] = useState(4);
+  const [startTime, setStartTime] = useState(null); // Variable para la hora de inicio
+  const [score, setScore] = useState(0); // Variable para el puntaje
+  const [selectedAnswers, setSelectedAnswers] = useState([]); // Para registrar las respuestas seleccionadas
+  const [retro, setRetro] = useState(null); // Variable para almacenar la retroalimentación
+
+  const navigate = useNavigate(); // Hook para redirigir
 
   // Recuperar el id_usuario desde el almacenamiento local
   const userId = JSON.parse(localStorage.getItem('session'))?.id_usuario;
@@ -39,6 +46,7 @@ function TestPage() {
 
       const data = await response.json();
       setTestId(data.test.id_test);
+      setStartTime(Date.now()); // Guardar el inicio del test
       fetchQuestion(data.test.id_test);
     } catch (error) {
       console.error('Error al iniciar el test:', error);
@@ -62,20 +70,23 @@ function TestPage() {
       // Procesar las opciones de respuesta directamente desde la API
       const options = data.question.options;
 
-      // Asumimos que 'question' es el texto de la pregunta y 'correctAnswer' es la respuesta correcta
-     setCurrentQuestion({
-    id: data.question.id,
-    question: data.question.question,
-    options: options,
-    correctAnswer: data.question.correctAnswer,
-    nivel_dificultad: data.nivel_dificultad, // Aquí está el nivel de dificultad
-});
+      setCurrentQuestion({
+        id: data.question.id,
+        question: data.question.question,
+        options: options,
+        category: data.question.category,
+        correctAnswer: data.question.correctAnswer,
+        nivel_dificultad: data.nivel_dificultad, // Aquí está el nivel de dificultad
+      });
     } catch (error) {
       console.error('Error al obtener pregunta:', error);
     }
   };
 
   const handleAnswer = async (selectedOption) => {
+    // Registrar respuesta del usuario
+    setSelectedAnswers((prevAnswers) => [...prevAnswers, selectedOption]);
+
     try {
       const response = await fetch(ENDPOINTS.TESTS + '/save', {
         method: 'POST',
@@ -84,13 +95,18 @@ function TestPage() {
         },
         body: JSON.stringify({
           id_test: testId,
-          nivel_dificultad: currentQuestion.nivel_dificultad ,
+          nivel_dificultad: currentQuestion.nivel_dificultad,
           respuesta_usuario: selectedOption,
           correcta: currentQuestion.correctAnswer,
+          category: currentQuestion.category,
         }),
       });
 
       if (!response.ok) throw new Error('Error al guardar la respuesta');
+
+      if (selectedOption === currentQuestion.correctAnswer) {
+        setScore((prevScore) => prevScore + 1); // Incrementar puntaje si la respuesta es correcta
+      }
 
       if (currentQuestionIndex + 1 < totalQuestions) {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
@@ -105,15 +121,26 @@ function TestPage() {
 
   const finalizarTest = async () => {
     try {
-      const response = await fetch(ENDPOINTS.TESTS + '/finish/:id_test', {
-        method: 'PUT',
+      const duration = (Date.now() - startTime) / 1000; // Calcular duración en segundos
+
+      // Calcular el puntaje en porcentaje
+      const scorePercentage = (score / totalQuestions) * 100; // (respuestas correctas / total preguntas) * 100
+
+      // Calcular el nivel final en base al porcentaje de puntaje
+      let nivel_final = 'A1'; // Nivel por defecto
+      if (scorePercentage >= 60) nivel_final = 'A2';
+      if (scorePercentage >= 80) nivel_final = 'B1';
+      if (scorePercentage >= 90) nivel_final = 'B2';
+
+      const response = await fetch(ENDPOINTS.TESTS + '/finish/' + testId, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          nivel_final: 'B1',
-          puntaje_total: 80,
-          duracion_total: 120,
+          nivel_final: nivel_final,
+          puntaje_total: scorePercentage, // Puntaje en porcentaje
+          duracion_total: duration, // Duración total
         }),
       });
 
@@ -121,7 +148,13 @@ function TestPage() {
 
       const data = await response.json();
       console.log('Test finalizado:', data);
-      alert('Test completado. ¡Gracias por participar!');
+
+      // Guardar la retroalimentación en el estado local
+      setRetro(data.retro); // Asumiendo que la retroalimentación viene en `data.retro`
+
+      // Redirigir a la página de resultados con la retroalimentación
+      navigate('/resultspage', { state: { retro: data.retro } });
+
     } catch (error) {
       console.error('Error al finalizar el test:', error);
     }
