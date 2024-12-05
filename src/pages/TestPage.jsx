@@ -10,7 +10,7 @@ function TestPage() {
   const [testId, setTestId] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(4);
+  const [totalQuestions, setTotalQuestions] = useState(20);
   const [startTime, setStartTime] = useState(null); // Variable para la hora de inicio
   const [score, setScore] = useState(0); // Variable para el puntaje
   const [selectedAnswers, setSelectedAnswers] = useState([]); // Para registrar las respuestas seleccionadas
