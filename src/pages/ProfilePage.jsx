@@ -134,13 +134,6 @@ function ProfilePage() {
     },
     {
       icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3e8aef443018211d164debe56de0d0dc91f0e9badec26a3333b50fd26493fbac",
-      title: 'Correo Electrónico',
-      value: profileData.correo,
-      editable: isEditable,
-      name: 'correo', // Ajustado correctamente
-    },
-    {
-      icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3e8aef443018211d164debe56de0d0dc91f0e9badec26a3333b50fd26493fbac",
       title: 'Contraseña',
       value: profileData.psw,
       editable: isEditable,
