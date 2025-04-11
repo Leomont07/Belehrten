@@ -10,7 +10,7 @@ function TestPage() {
   const [testId, setTestId] = useState(null);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(20);
+  const [totalQuestions, setTotalQuestions] = useState(40);
   const [startTime, setStartTime] = useState(null); // Variable para la hora de inicio
   const [score, setScore] = useState(0); // Variable para el puntaje
   const [selectedAnswers, setSelectedAnswers] = useState([]); // Para registrar las respuestas seleccionadas
@@ -76,7 +76,7 @@ function TestPage() {
         options: options,
         category: data.question.category,
         correctAnswer: data.question.correctAnswer,
-        nivel_dificultad: data.nivel_dificultad, // Aquí está el nivel de dificultad
+        nivel_dificultad: data.question.nivel_dificultad, 
       });
     } catch (error) {
       console.error('Error al obtener pregunta:', error);

@@ -11,7 +11,7 @@ function ResultsPage() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
-  const results = location.state?.retro?.data; // Acceder directamente a `data` dentro de `retro`
+  const results = location.state?.retro?.data; 
   const [userId, setUserId] = useState(null);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function ResultsPage() {
           grammar: results.grammar,
           reading: results.reading,
           vocabulary: results.vocabulary,
-          listening: results.listening,
+          elocuence: results.elocuence,
           nivel: results.level,
           id_usuario: userId, 
         }),
@@ -96,7 +96,7 @@ function ResultsPage() {
           grammar: results.grammar,
           reading: results.reading,
           vocabulary: results.vocabulary,
-          listening: results.listening,
+          elocuence: results.elocuence,
         }}
       />
       <button

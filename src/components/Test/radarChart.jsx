@@ -13,7 +13,7 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip);
 
 function RadarChart({ data }) {
   const chartData = {
-    labels: ['Grammar', 'Reading', 'Vocabulary', 'Listening'],
+    labels: ['Grammar', 'Reading', 'Vocabulary', 'Elocuelce'],
     datasets: [
       {
         label: 'Skill Levels',
@@ -21,7 +21,7 @@ function RadarChart({ data }) {
           data.grammar || 0,
           data.reading || 0,
           data.vocabulary || 0,
-          data.listening || 0,
+          data.elocuence || 0,
         ],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
@@ -34,7 +34,7 @@ function RadarChart({ data }) {
     scales: {
       r: {
         suggestedMin: 0,
-        suggestedMax: 100,
+        suggestedMax: 10,
         ticks: { stepSize: 20 },
         grid: { color: 'rgba(255,255,255,0.3)' },
         angleLines: { color: 'rgba(255,255,255,0.3)' },

@@ -2,13 +2,13 @@ import React from 'react';
 import SkillBar from './SkillBar';
 
 function ResultsCard({ results }) {
-  const { grammar, reading, vocabulary, listening, level, totalCorrect } = results;
+  const { grammar, reading, vocabulary, elocuence, level, totalCorrect } = results;
 
   const skills = [
     { name: 'Grammar', score: grammar },
     { name: 'Reading', score: reading },
     { name: 'Vocabulary', score: vocabulary },
-    { name: 'Listening', score: listening },
+    { name: 'Elocuence', score: elocuence },
   ];
 
   return (
